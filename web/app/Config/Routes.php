@@ -37,6 +37,7 @@ $routes->get('user/kelola_barangit', 'User::kelola_barangit', ['filter' => 'role
 $routes->get('user/kelola_kendaraandinas', 'User::kelola_kendaraandinas', ['filter' => 'role:admin']);
 $routes->get('user/rekap', 'User::rekap');
 $routes->get('/user', 'User::index');
+// $routes->get('/login', 'smokol/login');
 
 /*
  * --------------------------------------------------------------------
