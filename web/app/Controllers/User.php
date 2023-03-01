@@ -30,8 +30,8 @@ class User extends ResourceController
         $this->it = new BarangITModel();
         $this->barang_model = new BarangModel();
         $this->master_it = new MasterITModel();
-        $this->jenis_list = $this->master_it->select('distinct(jenis)')->where(['1='=>'1'])->findAll();
-        $this->merk_list = $this->master_it->select('distinct(merk)')->where(['1='=>'1'])->findAll();
+        $this->jenis_list = $this->master_it->select('distinct(jenis)')->findAll();
+        $this->merk_list = $this->master_it->select('distinct(merk)')->findAll();
         $this->pengguna_model = new PenggunaModel();
         $this->pengajuan_model = new PengajuanModel();
         $this->client = \Config\Services::curlrequest();

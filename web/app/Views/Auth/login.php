@@ -26,7 +26,6 @@
                         </div>
                     </div>
                     <?php endif; ?>
-                    <?php if ($config->validFields === ['username']) : ?>
                     <label>Username</label>
                     <div class="mb-3">
 
@@ -38,7 +37,6 @@
                             <?= session('errors.login') ?>
                         </div>
                     </div>
-                    <?php endif; ?>
                     <label>Kata Sandi</label>
                     <div class="mb-3">
 
