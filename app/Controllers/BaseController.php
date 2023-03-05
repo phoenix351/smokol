@@ -9,6 +9,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+
+use App\Models\BarangITModel;
+use App\Models\BarangModel;
+use App\Models\PenggunaModel;
+
 /**
  * Class BaseController
  *
@@ -36,7 +41,14 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['auth', 'uri'];
+
+	protected $app_name;
+	protected $uri;
+	protected $barang_model;
+	protected $barang_it_model;
+	protected $pengguna_model;
+	protected $database;
 
 	/**
 	 * Constructor.
@@ -54,5 +66,11 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		$this->app_name = "SMOKOL";
+		$this->uri = service('uri');
+		$this->request = service('request');
+		$this->barang_model = new BarangModel();
+		$this->barang_it_model = new BarangITModel();
+		$this->pengguna_model = new PenggunaModel();
 	}
 }

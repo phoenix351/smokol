@@ -2,14 +2,25 @@
 
 namespace App\Controllers;
 
+
 class Home extends BaseController
 {
+
 	public function index()
 	{
+
+
+		$sum_ = $this->barang_model->getKondisiSum(null);
 		$data = [
-			"app_name" => "SIMOKAD",
+			'barang_it'  => $this->barang_it_model->getBarangByUser(null),
+
+			'sum' => $sum_,
+			'title' => 'Daftar Barang',
+			"app_name" => $this->app_name,
 			"page_name" => "Dashboard",
+			"uri" => $this->uri
 		];
-		return view('auth/index', $data);
+
+		return view('user/index', $data);
 	}
 }

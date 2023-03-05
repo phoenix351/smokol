@@ -10,6 +10,148 @@
     .id {
         display: none;
     }
+
+    @media screen and (max-width: 768px) {
+
+        #daftar-barang {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 5px;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+
+
+        .card-footer .btn {
+            width: 100% !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            padding-left: 0px !important;
+            font-size: medium !important;
+        }
+
+
+        .btn-label {
+            position: relative;
+            left: -3px;
+            display: inline-block;
+            padding: 3px 3px;
+            /* background: rgba(0, 0, 0, 0.15); */
+            border-radius: 3px 0 0 3px;
+        }
+
+        .card {
+            min-width: 390px !important;
+            left: -10px;
+        }
+
+        .row {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        #daftar-barang {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        .card {
+            min-width: 280px
+        }
+
+        .card-footer .btn {
+            width: 100% !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            padding-left: 0px !important;
+            font-size: small !important;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .btn-label {
+            position: relative;
+            left: -3px;
+            display: inline-block;
+            padding: 6px 12px;
+            /* background: rgba(0, 0, 0, 0.15); */
+            border-radius: 3px 0 0 3px;
+
+        }
+
+        div.btn-container {
+            display: grid;
+            /* flex-direction: row; */
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            justify-content: space-around !important;
+        }
+    }
+
+    @media screen and (min-width: 1800px) {
+        #daftar-barang {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .card {
+            min-width: 400px;
+        }
+
+
+        .card-footer .btn {
+            width: 100% !important;
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            font-size: smaller !important;
+        }
+
+        .btn-label {
+            position: relative;
+            left: -3px;
+            display: inline-block;
+            padding: 6px 12px;
+            /* background: rgba(0, 0, 0, 0.15); */
+            border-radius: 3px 0 0 3px;
+
+        }
+
+        div.btn-container {
+            display: grid;
+            /* flex-direction: row; */
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            justify-content: space-around !important;
+        }
+    }
+
+
+
+    .title {
+        margin-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 </style>
 
 
@@ -23,7 +165,6 @@
 
             </div>
             <div class="modal-body">
-            <?=$this->include('templates/formTambahBarangUser');?>
             </div>
         </div>
     </div>
@@ -38,7 +179,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title text-light" id="edit-modal-label">Apakah Anda Yakin Akan Mengembalikan Barang Berikut Kepada Admin ? </h5>
+                <h5 class="modal-title text-light" id="edit-modal-label">Apakah Anda Yakin Akan Mengembalikan Barang
+                    Berikut Kepada Admin ? </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -83,7 +225,8 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5 class="modal-title text-dark" id="edit-modal-label">Apakah Anda Yakin akan Mengatur Akun ini Sebagai Bukan Penguasa Barang IT ? </h5>
+                <h5 class="modal-title text-dark" id="edit-modal-label">Apakah Anda Yakin akan Mengatur Akun ini Sebagai
+                    Bukan Penguasa Barang IT ? </h5>
                 <form action=" <?= base_url('user') ?>/pengguna_tidak_kuasa" method="post" role="form">
                     <?= csrf_field() ?>
                     <input type="text" class="d-none" name="user_id" id="barang_id">
@@ -102,8 +245,8 @@
 
 <!-- End modal Kembalikan Barang -->
 
-<!-- Modal pengajuan form -->
-<div class="modal fade" id="modal-edit-barang" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal update info form -->
+<!-- <div class="modal fade" id="modal-update-info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -111,123 +254,203 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('user') ?>/ajukan" method="post" role="form">
-                    <?= csrf_field() ?>
-                    <div class="row form-group mb-3">
-                        <label class="col-form-label" for="id_barang">ID Barang</label>
-                        <input type="text" id="id1" name="id_barang" class="form-control form-control-sm">
-                    </div>
-                    <div class="row form-group mb-3">
-                        <label class="col-form-label" for="type">Type Barang</label>
-                        <input type="text" name="type" class="form-control form-control-sm" value="1">
-                    </div>
-                    <div class="row form-group mb-3">
-                        <label class="col-form-label" for="complain">Keluhan</label>
-                        <textarea name="complain" cols=" 30" rows="10" class="form form-control form-control-sm"></textarea>
-                    </div>
+
 
             </div>
 
 
             <div class="modal-footer">
-                <input type="button" class="btn btn-sm btn-sm btn-default" data-bs-dismiss="modal" value="Batalkan">
-                <input type="submit" id="submit-edit" name="submit" class="btn btn-sm btn-sm btn-success" value="Ajukan">
+
             </div>
             </form>
 
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- Modal -->
+<div class="modal modal-fullscreen-md-down fade " id="modal-update-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Update Informasi</h5>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('user') ?>/ajukan" method="post" role="form">
+                    <?= csrf_field() ?>
+                    <div class=" mb-3">
+                        <label class="col-form-label" for="id-barang">ID Barang</label>
+                        <input type="text" id="id-barang" name="id-barang" class="form-control form-control-sm">
+                    </div>
+                    <div class=" mb-3">
+                        <label class="form-label" for="kondisi-barang">Kondisi Barang</label>
+                        <select name="kondisi-barang" id="kondisi-barang" class="form-control form-control-sm">
+                            <option value="Baik">Baik</option>
+                            <option value="Rusak Ringan">Rusak Ringan</option>
+                            <option value="Rusak Berat">Rusak Berat</option>
+                        </select>
+
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-form-label" for="sistem-operasi">Sistem Operasi</label>
+                        <select name="sistem-operasi" id="sistem-operasi" class="form-control form-control-sm">
+                            <?php foreach ($daftar_sistem_operasi as $os) : ?>
+                                <option value=<?= $os['id'] ?>><?= $os['nama_sistem_operasi'] . ' ' . $os['arsitektur'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-form-label" for="nama-ruangan">Lokasi Barang</label>
+                        <select name="nama-ruangan" id="nama-ruangan" class="form-control form-control-sm">
+                            <?php foreach ($daftar_ruangan as $ruangan) : ?>
+                                <option value=<?= $ruangan['id'] ?>><?= $ruangan['nama_ruangan'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                <input type="button" class="btn btn-sm btn-sm btn-default" data-bs-dismiss="modal" value="Batal">
+                <input type="submit" id="submit-edit" name="submit" class="btn btn-sm btn-sm btn-success" value="Simpan">
+                </form>
+            </div>
         </div>
     </div>
 </div>
 <!-- end modal pengajuan -->
 
 
-<h2><?php echo esc("$title"); ?></h2>
 
 <?= view('Myth\Auth\Views\_message_block') ?>
-<button href="#" class="btn btn-sm btn-sm btn-success mb-3 mt-2" id="tambah-barang">Tambah Barang</button>
-<?php if (user()->kuasa == '1') : ?>
-    <button href="#" class="btn btn-sm btn-sm btn-secondary mb-3 mt-2" id="tidak-kuasa">Tidak Menguasai</button>
-    <div class="table-responsive">
-        <table class="table table-hover" id="daftar-barang" data-search="false" data-striped="true" data-pagination="true" data-filter-control="true" data-side-pagination="client" data-page-size="10" data-page-list="[10, 25, 50, 100, ALL]">
-            <thead>
-                <tr>
-                    <th class="id">ID Barang</th>
-                    <th data-filter-control="input" data-field="Jenis Barang">Jenis Barang</th>
-                    <th data-filter-control="input" data-field="Nama Barang">Nama Barang</th>
-                    <th data-filter-control="input" data-field="Tipe">Tipe</th>
-                    <th data-filter-control="input" data-field="Merk">Merk</th>
-                    <th data-filter-control="input" data-field="OS">OS</th>
-                    <th data-filter-control="input" data-field="Tahun Peroleh">Tahun Peroleh</th>
-                    <th data-filter-control="input" data-field="Lokasi Barang">Lokasi Barang</th>
-                    <th data-filter-control="input" data-field="Kondisi">Kondisi</th>
-                    <th data-filter-control="input" data-field="Nomor Induk Barang">Nomor Induk Barang</th>
-                    <th data-filter-control="input" data-field="Nomor Seri">Nomor Seri</th>
-                    <th class="text-center">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($barang as $brg) : ?>
-                    <tr>
+<!-- <button href="#" class="btn btn-sm btn-sm btn-success mb-3 mt-2" id="tambah-barang">Tambah Barang</button> -->
 
-                        <td class="id"><?= esc($brg['id']); ?></td>
-                        <td class="jenis"><?= esc($brg['jenis']); ?></td>
-                        <td class="nama"><?= esc($brg['merk'] . ' ' . $brg['tipe']); ?></td>
-                        <td class="tipe"><?= esc($brg['tipe']); ?></td>
-                        <td class="merk"><?= esc($brg['merk']); ?></td>
-                        <td class="os"><?= esc($brg['os']); ?></td>
-                        <td class="tahun"><?= esc($brg['tahun_peroleh']); ?></td>
-                        <td class="lokasi"><?= esc($brg['lokasi']); ?></td>
-                        <td class="kondisi"><?= esc($brg['kondisi']); ?></td>
-                        <td class="nib"><?= esc($brg['nib']); ?></td>
-                        <td class="nomor_seri"><?= esc($brg['nomor_seri']); ?></td>
-                        <td class="text-center">
-                            <div class="row my-1">
-                                <form action="<?= base_url('user') ?>/tambah_pengajuan/<?= esc($brg['id']); ?>" method="get" role="form" class="w-100">
-                                    <button class="btn btn-sm btn-block btn-success" type="submit">Pengajuan</button>
-                                </form>
-                            </div>
-                            <div class="row my-1">
-                                <form action="<?= base_url('user') ?>/ubah_barangit_pengguna/<?= esc($brg['id']); ?>" method="get" role="form" class="w-100">
-                                    <button class="btn btn-sm btn-primary w-100" type="submit">Ubah</button>
-                                </form>
-                            </div>
-                            <div class="row my-1">
-                                <button class="btn btn-sm btn-block btn-danger" onclick="Kembalikan(this)">Kembalikan</button>
-                            </div>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+<!-- <button href="#" class="btn btn-sm btn-sm btn-secondary mb-3 mt-2" id="tidak-kuasa">Tidak Menguasai</button> -->
+<h2 class="title"><?php echo esc("$title"); ?></h2>
 
-            </tbody>
-        </table>
-    </div>
-<?php endif; ?>
+<section id="daftar-barang">
 
-<?php if (user()->kuasa == '0') : ?>
-    <p> Anda tidak dapat mengakses data ini karena anda tidak menguasai barang IT, silahkan tambahkan barang untuk mengaktifkan atau hubungin admin</p>
-<?php endif; ?>
+    <?php foreach ($barang as $brg) : ?>
+
+        <div class="container py-5">
+            <div class="row ">
+                <div class="col-6 col-sm-12">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                            <img src="https://fastly.picsum.photos/id/6/5000/3333.jpg?hmac=pq9FRpg2xkAQ7J9JTrBtyFcp9-qvlu8ycAi7bUHlL7I" style="border-top-left-radius: 15px; border-top-right-radius: 15px;" class="img-fluid" alt="Laptop" />
+                            <a href="#!">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p><a href="#!" class="text-dark"><?= esc($brg['merk_barang'] . ' ' . $brg['tipe_barang']); ?></a>
+                                    </p>
+                                    <p class="small text-muted"><?= esc($brg['jenis_barang']); ?></p>
+                                </div>
+                                <div>
+                                    <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-primary">
+                                        <?= esc($brg['sistem_operasi']); ?>
+                                    </div>
+
+                                    <p class="small text-muted"><?= esc($brg['nomor_seri']); ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-0" />
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-dark"><?= esc($brg['nama_ruangan']); ?></p>
+
+                                <p><a href="#!" class="text-dark"></a></p>
+                                <p class="text-success"><?= esc($brg['kondisi_barang']); ?></p>
+                            </div>
+                            <p class="small text-muted"><?= esc($brg['tanggal_peroleh']); ?></p>
+                        </div>
+                        <hr class="my-0" />
+                        <div class="card-footer">
+                            <!-- <div class="d-flex justify-content-between align-items-center pb-2 mb-1"> -->
+                            <div class="btn-container">
+                                <button type="button" class="btn btn-sm btn-primary"><span class="btn-label"><i class="fas fa-tools"></i></span>Pemeliharaan</button>
+                                <button type="button" class="btn btn-sm btn-secondary"><span class="btn-label"><i class="fas fa-upload"></i></span>
+                                    Upload BAST</button>
+                                <button type="button" value=<?= $brg['id'] ?> class="btn btn-sm btn-info
+                                update-info-btn"><span class="btn-label"><i id="update-info-icon-<?= $brg['id'] ?>" class="fas fa-edit"></i>
+                                        <span id="update-info-loading-<?= $brg['id'] ?>" class="spinner-border spinner-border-sm update-info-loading" role="status" aria-hidden="true"></span>
+                                    </span>Update
+                                    Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section>
+
+
+
+
 
 
 
 
 <script>
+    async function getLatestHistoryBarang(id_barang) {
+        // show the loading
+        $(`#update-info-loading-${id_barang}`).show();
+        $(`#update-info-icon-${id_barang}`).hide();
+
+
+        try {
+            const response = await fetch('<?= base_url() ?>/barang/get_last_history?id_barang=' + id_barang);
+            const data = await response.json();
+            $('#id-barang').val(data['id_barang']);
+            $("#kondisi-barang").val(data['kondisi']);
+            $("#sistem-operasi").val(data['id_sistem_operasi']);
+            $("#nama-ruangan").val(data["id_ruangan"]);
+            return data;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            // hide the loading
+
+            $(`#update-info-loading-${id_barang}`).hide();
+            $(`#update-info-icon-${id_barang}`).show();
+        }
+    }
+
+
     $(document).ready(function() {
-        $('#daftar-barang').bootstrapTable();
+        $('.update-info-loading').hide();
+
         $('#tambah-barang').click(function() {
             $("#modal-add-barang").modal('show');
         });
-          
-          $("form[name=form-add]").submit(function() {
+
+        $("form[name=form-add]").submit(function() {
             $(this).submit(function() {
                 return false;
             });
             return true;
         });
-        
+
         $('#tidak-kuasa').click(function() {
             let user_id = "<?= user()->id ?>";
             $("#user_id").val(user_id);
             $("#modal-tidak-kuasa").modal('show');
+        });
+
+        $('.update-info-btn').click(async (e) => {
+            let id_barang = e.currentTarget.value;
+            const response = await getLatestHistoryBarang(id_barang);
+
+            $('#modal-update-info').modal('show');
+
         });
 
 

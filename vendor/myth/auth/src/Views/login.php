@@ -181,9 +181,9 @@ input[type="password"]:target~.input-label {
 </style>
 <div class="container">
     <div class="top-content">
-        <img src="https://i.postimg.cc/CL7CmGSx/google-logo-png-29530.png" alt="">
-        <h2>Sign in</h2>
-        <p class="heading">Use your Google Account</p>
+        <h1 style="margin-bottom:30px;color:#3219d4">Smokol</h1>
+
+        <h2 style="margin-bottom:30px;">Sign in</h2>
         <?= view('Myth\Auth\Views\_message_block') ?>
 
     </div>

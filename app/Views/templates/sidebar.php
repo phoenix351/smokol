@@ -20,10 +20,10 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($uri->getSegment(2) == '') {
+                    <a class="nav-link <?php if ($uri->getSegment(1) == 'index') {
                                             echo "active ";
                                         }
-                                        ?>" href="<?= esc(base_url()); ?>/user">
+                                        ?>" href="<?= esc(base_url('index')); ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
@@ -31,12 +31,12 @@
 
                 <?php if (logged_in()) : ?>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($uri->getSegment(2) == 'rekap') {
+                        <a class="nav-link <?php if ($uri->getSegment(1) == 'rekap') {
                                                 echo "active ";
                                             }
-                                            ?>" href="<?= esc(base_url()); ?>/user/rekap">
+                                            ?>" href="<?= esc(base_url()); ?>rekap">
 
-                            <i class="nav-icon fas fa-calendar-check <?php if ($uri->getSegment(2) == 'rekap') {
+                            <i class="nav-icon fas fa-calendar-check <?php if ($uri->getSegment(1) == 'rekap') {
                                                                             echo "text-white";
                                                                         } else {
                                                                             echo "text-dark";
@@ -47,12 +47,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($uri->getSegment(2) == 'pengguna_barangit') {
+                        <a class="nav-link <?php if ($uri->getSegment(1) == 'pengguna_barang') {
                                                 echo "active ";
                                             }
-                                            ?>" href="<?= esc(base_url()); ?>/user/pengguna_barangit">
+                                            ?>" href="<?= esc(base_url()); ?>pengguna_barang">
 
-                            <i class="nav-icon fas fa-desktop <?php if ($uri->getSegment(2) == 'pengguna_barangit') {
+                            <i class="nav-icon fas fa-desktop <?php if ($uri->getSegment(1) == 'pengguna_barang') {
                                                                     echo "text-white";
                                                                 } else {
                                                                     echo "text-dark";
@@ -64,12 +64,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($uri->getSegment(2) == 'pengguna_pengajuan') {
+                        <a class="nav-link <?php if ($uri->getSegment(1) == 'pengguna_pengajuan') {
                                                 echo "active ";
                                             }
-                                            ?>" href="<?= esc(base_url()); ?>/user/pengguna_pengajuan">
+                                            ?>" href="<?= esc(base_url()); ?>pengguna_pengajuan">
 
-                            <i class="nav-icon fas fa-sticky-note <?php if ($uri->getSegment(2) == 'pengguna_pengajuan') {
+                            <i class="nav-icon fas fa-sticky-note <?php if ($uri->getSegment(1) == 'pengguna_pengajuan') {
                                                                         echo "text-white";
                                                                     } else {
                                                                         echo "text-dark";
@@ -88,12 +88,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($uri->getSegment(2) == 'kelola_barangit') {
+                            <a class="nav-link <?php if ($uri->getSegment(1) == 'kelola_barangit') {
                                                     echo "active ";
                                                 }
-                                                ?>" href="<?= esc(base_url()); ?>/user/kelola_barangit">
+                                                ?>" href="<?= esc(base_url()); ?>kelola_barangit">
 
-                                <i class="nav-icon fas fa-desktop <?php if ($uri->getSegment(2) == 'kelola_barangit') {
+                                <i class="nav-icon fas fa-desktop <?php if ($uri->getSegment(1) == 'kelola_barangit') {
                                                                         echo "text-white";
                                                                     } else {
                                                                         echo "text-dark";
@@ -105,12 +105,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($uri->getSegment(2) == 'kelola_pengajuan') {
+                            <a class="nav-link <?php if ($uri->getSegment(1) == 'kelola_pengajuan') {
                                                     echo "active ";
                                                 }
-                                                ?>" href="<?= esc(base_url()); ?>/user/kelola_pengajuan">
+                                                ?>" href="<?= esc(base_url()); ?>kelola_pengajuan">
 
-                                <i class="nav-icon fas fa-sticky-note <?php if ($uri->getSegment(2) == 'kelola_pengajuan') {
+                                <i class="nav-icon fas fa-sticky-note <?php if ($uri->getSegment(1) == 'kelola_pengajuan') {
                                                                             echo "text-white";
                                                                         } else {
                                                                             echo "text-dark";
@@ -121,12 +121,12 @@
                             </a>
                         </li>
                         <li class="nav-item d-none">
-                            <a class="nav-link <?php if ($uri->getSegment(2) == 'kelola_pengguna') {
+                            <a class="nav-link <?php if ($uri->getSegment(1) == 'kelola_pengguna') {
                                                     echo "active ";
                                                 }
-                                                ?>" href="<?= esc(base_url()); ?>/user/kelola_pengguna">
+                                                ?>" href="<?= esc(base_url()); ?>kelola_pengguna">
 
-                                <i class="nav-icon fas fa-users <?php if ($uri->getSegment(2) == 'kelola_pengguna') {
+                                <i class="nav-icon fas fa-users <?php if ($uri->getSegment(1) == 'kelola_pengguna') {
                                                                     echo "text-white";
                                                                 } else {
                                                                     echo "text-dark";
@@ -144,10 +144,10 @@
                         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($uri->getSegment(2) == 'profile') {
+                        <a class="nav-link <?php if ($uri->getSegment(1) == 'profile') {
                                                 echo "active ";
                                             }
-                                            ?>" href="<?= esc(base_url()); ?>/user/profile">
+                                            ?>" href="<?= esc(base_url()); ?>profile">
 
                             <i class="nav-icon fas fa-user"></i>
 
@@ -155,7 +155,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= esc(base_url()); ?>/logout">
+                        <a class="nav-link" href="<?= esc(base_url()); ?>logout">
 
                             <i class="nav-icon fas fa-sign-out-alt text-dark"></i>
 
@@ -165,7 +165,7 @@
                     <!-- End Profile Pages -->
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= esc(base_url()); ?>/login">
+                        <a class="nav-link" href="<?= esc(base_url()); ?>login">
                             <i class="nav-icon fas fa-sign-in-alt text-dark"></i>
 
 

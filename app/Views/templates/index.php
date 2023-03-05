@@ -14,8 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 
-<?php helper('auth');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,15 +28,13 @@
     </title>
     <!--     Fonts and icons     -->
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet"
-        href="<?= base_url() ?>/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -62,8 +59,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="<?= esc(base_url()); ?>/assets/img/logo-ct.png" alt="AdminLTELogo"
-                height="60" width="60">
+            <img class="animation__shake" src="<?= esc(base_url()); ?>/assets/img/logo-ct.png" alt="AdminLTELogo" height="60" width="60">
         </div>
 
         <!-- Sidebar -->
@@ -98,12 +94,12 @@
 
     </div>
     <style>
-    th,
-    td,
-    button,
-    input {
-        font-size: 0.875rem;
-    }
+        th,
+        td,
+        button,
+        input {
+            font-size: 0.875rem;
+        }
     </style>
 
     <script src="<?= esc(base_url()); ?>/assets/plugins/summernote/summernote-bs4.min.js"></script>
@@ -114,8 +110,7 @@
     <script src="<?= base_url() ?>/assets/js/adminlte.js"></script>
     <!-- AdminLTE for demo purposes -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
@@ -134,13 +129,13 @@
 
 
     <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-            damping: '0.5'
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
     </script>
 
 </body>

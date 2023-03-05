@@ -32,12 +32,16 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->addRedirect('/', '/login');
-$routes->get('user/kelola_pengguna', 'User::kelola_pengguna', ['filter' => 'role:admin']);
-$routes->get('user/kelola_barangit', 'User::kelola_barangit', ['filter' => 'role:admin']);
-$routes->get('user/kelola_kendaraandinas', 'User::kelola_kendaraandinas', ['filter' => 'role:admin']);
-$routes->get('user/rekap', 'User::rekap');
+$routes->get('admin/pengguna', 'AdminPengguna::index', ['filter' => 'role:admin']);
+$routes->get('admin/barang', 'AdminBarang::index', ['filter' => 'role:admin']);
+$routes->get('admin/pengajuan', 'AdminPengajuan::index', ['filter' => 'role:admin']);
+// $routes->get('rekap', 'RekapController');
+// $routes->get('/rekap/*', 'RekapController');
+$routes->get('/pengguna_barang', 'Barang::index');
+
+
 $routes->get('/user', 'User::index');
-$routes->get('/index', 'User::index');
+$routes->get('/index', 'Home::index');
 // $routes->get('/login', 'smokol/login');
 
 /*
